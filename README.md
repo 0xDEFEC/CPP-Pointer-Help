@@ -4,4 +4,4 @@ This is a guide to help beginners in C++ hopefully understand the concepts of po
 
 I wrote it at 6 AM.
 
-Hope ya' like it. ¯\_(ツ)_/¯
+Hope ya' like it. ¯\\_(ツ)_/¯
