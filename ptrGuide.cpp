@@ -28,13 +28,13 @@ int main() {
 	*/
 	int param1 = 1; // simple arg var
 	int result;     // stores function return value
-		  // function1(int arg)
+              // function1(int arg)
 	result = function1(param1); /* ------> What this does is pass a copy of param1 to function1(), rather than the actual variable itself.
 										   This function takes the value and adds five to it. If you print param1 after calling this function,
 										   it would still equal 1. This is because a copy of param1 was passed, rather than the actual variable.
 										   Let's say we wanted to actually modify the variable directly in the function itself, rather
 										   than its copy. See below:                                                                              */
-										   // function1_ref(int &arg)
+     // function1_ref(int &arg)
 	function1_ref(param1); /* ------> What this does is pass the memory address of the original variable and allows for its value to be
 									  modified directly. No copies are passed as the argument since this function takes an argument of
 									  (int&). This function doesn't return any value either since param1 is now increased by 5 directly.
@@ -56,7 +56,7 @@ int main() {
 									  */
 	int param2 = 5;
 	int* param2_ptr = &param2; // points to param2 and holds its value
- // function2(int *arg)
+     // function2(int *arg)
 	function2(&param2); /* ------> Functions that are defined with parameters that take a pointer will take a reference to a non-pointer variable.
 								 What this does is practically the same as the above example with referencing. This will take the address of param
 								 and modify it directly, but in a pointer-esc manner.                                                               */
@@ -71,7 +71,7 @@ int main() {
 
 		  Below are some examples:
 	*/
-	//  function3(int(*fn)(int, int))
+    //  function3(int(*fn)(int, int))
 	function3(callback); /* -----------> What this does is gives function3() access to the provided function callback(). Passing callback() as a
 		   // callback(int, int)         parameter to function3() allows function3() to point to callback()'s address. Then, function3() will use
 										 callback() however it plans to; in this case, it simply calls it with its own arguments.                    */
@@ -84,7 +84,7 @@ int main() {
 	// Function type definitions follow the syntax: ( typedef return_type(*name)(parameters) )      -- THE TYPE DEFINITION ***MUST*** HAVE THE																																		   
 	                                                                                              //   SAME SIGNATURE AS THE EXPORTED FUNCTION
 	// NOTE: this following example uses the Win32 GetProcAddress function to retrieve a function address from kernel32.dll
- // to hold void WINAPI GetNativeSystemInfo(LPSYSTEM_INFO lpSystemInfo) located in kernel32.dll
+     // to hold void WINAPI GetNativeSystemInfo(LPSYSTEM_INFO lpSystemInfo) located in kernel32.dll
 	typedef void (WINAPI *PGNSI)(LPSYSTEM_INFO);
 	PGNSI function; // variable that contains the same signature as the desired exported function
 	function = (PGNSI)GetProcAddress(GetModuleHandle(TEXT("kernel32.dll")), "GetNativeSystemInfo"); /* gets base address of GetNativeSystemInfo from kernel32.dll,
